@@ -62,7 +62,7 @@ read -p "Press Enter to continue: "
 
 dpkg-deb -e $PKGNAME		#extract the DEBIAN folder to the current directory
 
-cp "./DEBIAN/control" "/tmp/repo2sfs/"$(basename $PKGNAME .deb)"_repo2sfs_control.txt"
+cp "./DEBIAN/control" "/tmp/repo2sfs/""$(basename $PKGNAME .deb)""_repo2sfs_control.txt"
 
 SQUASH=$(basename $PKGNAME .deb)".squashfs"
 rm -f $SQUASH

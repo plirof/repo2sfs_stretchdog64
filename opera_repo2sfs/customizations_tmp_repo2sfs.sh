@@ -4,7 +4,7 @@
 #############
 #chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy
 chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/opera/opera_sandbox
-read -p "Done. Remember to create the puppy user. Press Enter: "
+#read -p "Done. Remember to create the puppy user. Press Enter: "
 
 
 _______________________________
@@ -98,4 +98,5 @@ StartupWMClass=Opera
 StartupNotify=true
 EOF42
 
-read -p "Done. Remember to create the puppy user. Press Enter: "
+echo "DONE with CUSTOMAZATION of /tmp/repo2sfs ........ "
+#read -p "Done. Remember to create the puppy user. Press Enter: "
