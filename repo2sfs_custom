@@ -55,7 +55,8 @@ for D in $APTPATH/*.deb; do dpkg-deb -x $D $BUILDDIR; done
 
 rm -rf $BUILDDIR/usr/share/doc $BUILDDIR/usr/share/man
 
-echo
+echo "running customizations_tmp_repo2sfs.sh"
+./customizations_tmp_repo2sfs.sh
 echo "Pause here to fix anything in $BUILDDIR (RUN your Extra MOD scripts NOW)..."
 read -p "Press Enter to continue: "
 
