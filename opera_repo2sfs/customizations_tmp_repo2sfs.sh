@@ -3,13 +3,7 @@ echo "OPERA browser CUSTOMIZATION SCRIPT"
 #############
 # OPERA CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############
-#chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy
 chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/opera/opera_sandbox
-#read -p "Done. Remember to create the puppy user. Press Enter: "
-
-
-_______________________________
-#!/bin/sh
 #jonmod 180514a
 #latest opera amd64 https://www.opera.com/el/computer/linux
 mkdir -p /tmp/repo2sfs/usr/bin
@@ -99,5 +93,5 @@ StartupWMClass=Opera
 StartupNotify=true
 EOF42
 
-echo "DONE with CUSTOMAZATION of /tmp/repo2sfs ........ "
+echo "DONE with CUSTOMIZATION of /tmp/repo2sfs ........ "
 #read -p "Done. Remember to create the puppy user. Press Enter: "
