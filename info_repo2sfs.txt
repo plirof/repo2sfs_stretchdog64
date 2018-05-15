@@ -1,0 +1,70 @@
+http://murga-linux.com/puppy/viewtopic.php?t=112784&search_id=490630491&start=15
+
+
+How to make your own 64bit Google Chrome Browser squashfs module
+
+Get the repo2sfs tool from Page 1, dated 2018-02-23+. If you are new to this, do the test-run first.
+
+Now for Chrome - you will need a non-root user:
+
+In the System Tools menu, run Add New User
+Create a user named "guest" with password "guest"
+Accept the default list of groups, especially Audio
+
+Download Chrome:
+Code:	
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	
+
+Extract the chrome-guest-setup script attached below.
+
+Because you are working with a 3rd-party Debian package, you will run repo2sfs a bit differently:
+Start in an empty folder holding the repo2sfs script, the chrome-guest-setup script and the Chrome .deb package.
+
+Open a teminal (F4) and type: ./repo2sfs google-chrome-stable_current_amd64.deb (Hint: use Tab completion)
+
+Part-way through, you will get this dialog:
+Code:	
+In the next step, the package will be temporarily removed ...
+Press Enter to continue:	
+
+Continue the build.
+Stop at the pause for "fix anything in /tmp/repo2sfs".
+Open another terminal and run the chrome-guest-setup script.
+
+Finish the build.
+Load the module and run Google Chrome from the Internet menu. 
+
+
+
+__________________________________________________________________________________________________________________________________________
+How to make an Opera browser squashfs module (64bit)
+
+1. Go to https://www.opera.com/ and get the amd64 Debian package.
+2. It wants a non-root "guest" user. See the instructions on Page 2 for installing Chrome.
+3. Extract the opera-guest-setup script attached below.
+4. Start with an empty folder containing the repo2sfs script, the opera-guest-setup script and the Opera .deb.
+5. Run the repo2sfs third-party build. (see Chrome.)
+6. Stop at the pause for "fix anything in /tmp/rep2sfs". Open another terminal and run the opera-guest-setup script.
+7. Finish the build. Load the module and run Opera from the Internet menu.
+
+------------------
+
+How to make a Slimjet browser squashfs module
+
+Get a Debian package from the slimjet website.
+
+Follow the above instructions, but use the slimjet-guest-setup script attached below.
+
+------------------------
+
+How to make an Iron browser squashfs module
+
+Get a Debian package from the iron website.
+
+Follow the above instructions, but with the following changes:
+a. Include two extra packages: libnss3 libgconf-2-4
+b. Use the iron-guest-setup script attached below.
+
+-----------------------
+
+__________________________________________________________________________________________________________________________________________

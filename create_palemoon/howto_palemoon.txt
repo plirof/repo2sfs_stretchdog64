@@ -1,0 +1,10 @@
+How to make a Palemoon squashfs package:
+
+1. Install unzipper from Fred's repo.
+2. Go to https://linux.palemoon.org/download/mainline/ 
+3. Download a source .tar.bz2 package.
+4. Make an EMPTY folder.
+5. Copy into the folder the Palemoon source package and the make-palemoon.sh script.
+6. Open a terminal and run the script.
+
+

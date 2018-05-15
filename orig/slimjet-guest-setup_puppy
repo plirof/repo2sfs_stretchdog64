@@ -1,0 +1,10 @@
+#!/bin/sh
+cat > /tmp/repo2sfs/usr/bin/slimjet-puppy << EOF
+#!/bin/sh
+xhost +local:puppy
+su -l puppy -c "flashpeak-slimjet \$1"
+EOF
+chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy
+sed -i 's|/usr/bin/flashpeak-slimjet|/usr/bin/slimjet-puppy|' /tmp/repo2sfs/usr/share/applications/slimjet.desktop
+sed -i 's|Icon=flashpeak-slimjet|Icon=/usr/share/pixmaps/slimjet.xpm|' /tmp/repo2sfs/usr/share/applications/slimjet.desktop
+read -p "Done. Remember to create the puppy user. Press Enter: "

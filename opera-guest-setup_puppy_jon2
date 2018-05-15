@@ -1,0 +1,10 @@
+#!/bin/sh
+cat > /tmp/repo2sfs/usr/bin/opera-puppy << EOF
+#!/bin/sh
+xhost +local:puppy
+su -l puppy -c "opera \$1"
+EOF
+chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy
+sed -i 's/Exec=opera/Exec=opera-puppy/' /tmp/repo2sfs/usr/share/applications/opera.desktop
+chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/opera/opera_sandbox
+read -p "Done. Remember to create the puppy user. Press Enter: "

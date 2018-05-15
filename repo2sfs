@@ -1,0 +1,77 @@
+#!/bin/sh
+# rcrsn51 2018-02-22
+
+echo
+if [ $# -eq 0 ]; then
+	read -p "Program/package name: [asunder] " NAME
+	[ -z "$NAME" ] && exit
+	MODE=0	#apt-get
+else
+	[ ! -f "$1" ] && echo File not found! && exit
+	DEBNAME=$1
+	NAME=$(dpkg-deb -I $DEBNAME | grep Package | awk '{print $2'})
+	echo "Program/package name:" $NAME
+	MODE=1	#dpkg
+fi
+
+read -p "List of extra packages: [lame] " EXTRA
+EXTRA=${EXTRA//,/ }
+read -p "Continue? [y/n] " REPLY
+[ "$REPLY" != "y" ] && exit
+
+apt-get clean
+
+read -p "Run an apt-get update? [y/n] " REPLY
+[ "$REPLY" = "y" ] && apt-get update
+
+APTPATH="/var/cache/apt/archives"
+
+if [ $MODE -eq 0 ]; then
+	apt-get -d install $NAME $EXTRA
+else
+	[ -n "$EXTRA" ] && apt-get -d install $EXTRA
+	dpkg -i $DEBNAME
+	apt-get -f -d install
+	cp $DEBNAME $APTPATH
+	echo
+	echo In the next step, the package will be temporarily removed ...
+	read -p "Press Enter to continue: "
+	apt-get remove $NAME
+fi
+
+PKGNAME=$(ls $APTPATH/$NAME* 2>/dev/null | head -n1) #with the full path
+[ -z "$PKGNAME" ] && exit
+
+echo
+echo "Pause here to fix anything in $APTPATH ..."
+read -p "Press Enter to continue: "
+echo Working ...
+
+BUILDDIR="/tmp/repo2sfs/"
+rm -rf $BUILDDIR
+mkdir $BUILDDIR
+
+for D in $APTPATH/*.deb; do dpkg-deb -x $D $BUILDDIR; done
+
+rm -rf $BUILDDIR/usr/share/doc $BUILDDIR/usr/share/man
+
+echo
+echo "Pause here to fix anything in $BUILDDIR (RUN your Extra MOD scripts NOW)..."
+read -p "Press Enter to continue: "
+
+SQUASH=$(basename $PKGNAME .deb)".squashfs"
+rm -f $SQUASH
+mksquashfs $BUILDDIR $SQUASH
+
+dpkg-deb -e $PKGNAME		#extract the DEBIAN folder to the current directory
+mv DEBIAN DEBIAN.$NAME
+
+echo
+read -p "Do you want to load the module now? [y/n] " REPLY
+[ "$REPLY" != "y" ] && exit
+ln -sf $(find /usr/lib/ -name glib-compile-schemas) /usr/bin/glib-compile-schemas
+loadmodule -a $SQUASH 2> /dev/null
+lxpanelctl restart
+echo
+echo Run $NAME from its menu entry ...
+echo

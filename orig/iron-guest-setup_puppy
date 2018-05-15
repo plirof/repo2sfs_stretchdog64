@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# needs extras: libnss3 libgconf-2-4
+
+mkdir -p /tmp/repo2sfs/usr/bin
+cat > /tmp/repo2sfs/usr/bin/iron-puppy << EOF
+#!/bin/sh
+xhost +local:puppy
+su -l puppy -c "/usr/share/iron/chrome-wrapper \$1"
+EOF
+chmod 755 /tmp/repo2sfs/usr/bin/iron-puppy
+
+cat > /usr/share/applications/iron.desktop << EOF2
+[Desktop Entry]
+Name=SRWare Iron
+Comment=SRWare Iron-Browser
+Exec=iron-puppy
+Icon=iron_product_logo
+Terminal=false
+Type=Application
+Categories=Network;
+StartupNotify=false
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp; 
+EOF2
+
+chmod 755 /tmp/repo2sfs/usr/share/iron/chrome-wrapper
+chmod 4755 /tmp/repo2sfs/usr/share/iron/chrome-sandbox
+
+read -p "Done. Remember to create the puppy user. Press Enter: "
