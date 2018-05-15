@@ -3,7 +3,7 @@ echo "ERROR firefox based - CYBERFOX browser CUSTOMIZATION SCRIPT"
 #############
 # cyberfox CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############
-chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/cyberfox/cyberfox_sandbox
+#chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/cyberfox/cyberfox_sandbox
 #jonmod 180514a
 #latest cyberfox amd64 https://www.cyberfox.com/el/computer/linux
 mkdir -p /tmp/repo2sfs/usr/bin
