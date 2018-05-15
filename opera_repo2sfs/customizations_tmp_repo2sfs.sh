@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "OPERA browser CUSTOMIZATION SCRIPT"
 #############
 # OPERA CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############

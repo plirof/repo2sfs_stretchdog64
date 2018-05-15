@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "SLIMJET flashpeak browser CUSTOMIZATION SCRIPT"
 #############
 # SLIMJET CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############
