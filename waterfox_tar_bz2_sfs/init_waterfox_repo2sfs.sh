@@ -8,7 +8,7 @@ MYFILENAME=waterfox-56.1.0.en-US.linux-x86_64.tar.bz2
 #mkdir -p /tmp/repo2sfs
 #cp DEBIAN/control /tmp/repo2sfs/$MYFILENAME_control.txt
 uextract $1
-./customizations_tar.gz.sh "$1.extracted"
+./customizations_tar.bz2.sh "$1.extracted"
 #mv $MYFILENAME.squashfs $MYFILENAME_$MYVERSION.squashfs
 
 
