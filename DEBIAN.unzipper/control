@@ -1,8 +1,0 @@
-Package: unzipper
-Version: 1.5-1
-Section: base
-Priority: optional
-Architecture: all
-Maintainer: rcrsn51
-Description: Extract gz, tgz, bz2, xz, zip, 7z archives
-Depends: gzip, bzip2, xz-utils, unzip, p7zip, unrar
