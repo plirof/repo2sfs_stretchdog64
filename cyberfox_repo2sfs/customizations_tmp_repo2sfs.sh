@@ -5,7 +5,7 @@ echo "ERROR firefox based - CYBERFOX browser CUSTOMIZATION SCRIPT"
 #############
 #chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/cyberfox/cyberfox_sandbox
 #jonmod 180514a
-#latest cyberfox amd64 https://www.cyberfox.com/el/computer/linux
+#latest cyberfox amd64 https://cyberfox.8pecxstudios.com/cyberfox-linux/
 mkdir -p /tmp/repo2sfs/usr/bin
 # needs extras: libnss3 libgconf-2-4
 /tmp/repo2sfs/usr/bin/
