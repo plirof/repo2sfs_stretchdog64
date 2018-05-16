@@ -10,5 +10,5 @@
 
 user_pref("browser.download.dir", "/mnt/sda1/downloads_linux");
 user_pref("browser.download.folderList", 2);
-user_pref("browser.cache.disk.parent_directory", "/mnt/sda1/downloads_linux/.cache/palemoon");
+user_pref("browser.cache.disk.parent_directory", "/mnt/sda1/downloads_linux/.cache/waterfox");
 

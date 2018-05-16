@@ -1,7 +1,7 @@
 #change MYFILENAME and MYVERSION to help renaming
-echo "1st MANUALLY download PALEMOON from here : https://software.opensuse.org/download.html?project=home:stevenpusser&package=palemoon  , example link https://download.opensuse.org/repositories/home:/stevenpusser/Debian_9.0/amd64/palemoon_27.9.1~repack-1_amd64.deb "
+echo "1st MANUALLY download waterfox from here : https://www.waterfoxproject.org/en-US/waterfox/new/  , example link https://storage-waterfox.netdna-ssl.com/releases/linux64/installer/waterfox-56.1.0.en-US.linux-x86_64.tar.bz2 "
 #echo "INFO TEXT : when adked for EXTRA packages enter libnss3 libgconf-2-4"
-MYFILENAME=palemoon_27.9.1~repack-1_amd64.deb
+MYFILENAME=waterfox-56.1.0.en-US.linux-x86_64.tar.bz2
 #MYVERSION=_18.0.5.0_20180426_repo2sfs_v01
 #wget https://www.slimjetbrowser.com/release/$MYFILENAME
 #dpkg-deb -e $MYFILENAME.deb		#extract the DEBIAN folder to the current directory
