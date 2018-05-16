@@ -7,5 +7,17 @@ MYFILENAME=waterfox-56.1.0.en-US.linux-x86_64.tar.bz2
 #dpkg-deb -e $MYFILENAME.deb		#extract the DEBIAN folder to the current directory
 #mkdir -p /tmp/repo2sfs
 #cp DEBIAN/control /tmp/repo2sfs/$MYFILENAME_control.txt
-../repo2sfs_custom $1
+uextract $1
+./customizations_tar.gz.sh "$1.extracted"
 #mv $MYFILENAME.squashfs $MYFILENAME_$MYVERSION.squashfs
+
+
+#BUILDDIR="."
+#rm -rf $BUILDDIR
+#mkdir $BUILDDIR
+
+
+#SQUASH="$1.squashfs"
+#rm -f $SQUASH
+#mksquashfs $BUILDDIR $SQUASH
+mksquashfs $1.extracted $1_v01.squashfs
