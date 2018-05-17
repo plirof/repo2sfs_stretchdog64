@@ -4,6 +4,11 @@ echo "SLIMJET flashpeak browser CUSTOMIZATION SCRIPT"
 # SLIMJET CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############
 #latest slimjet amd64 https://www.slimjetbrowser.com/release/slimjet_amd64.deb
+
+# set to true (lowercase)  if you want extra scripts/.desktop created
+SDA1SCRIPTS=true
+SDB1SCRIPTS=true
+
 mkdir -p /tmp/repo2sfs/usr/bin
 # needs extras: libnss3 libgconf-2-4
 
@@ -35,8 +40,10 @@ StartupWMClass=Slimjet
 StartupNotify=true
 EOF2
 
-
-cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1 << EOF31
+################### SDA1 #########################################################
+if [ $SDA1SCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1.sh << EOF31
 #!/bin/sh
 
 xhost +local:puppy
@@ -45,13 +52,13 @@ mkdir -p /mnt/sda1/downloads_linux/.cache/slimjet
 #su - puppy -c "/usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/sda1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
 EOF31
-chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1
+chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1.sh
 
 cat > /tmp/repo2sfs/usr/share/applications/slimjet-puppy-sda1.desktop << EOF32
 [Desktop Entry]
 Version=1.0
 Name=Slimjet puppy -sda1(C:) EXTERNAL repo2sfs
-Exec=slimjet-puppy-sda1
+Exec=slimjet-puppy-sda1.sh
 Terminal=false
 X-MultipleArgs=false
 Type=Application
@@ -61,11 +68,12 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=Slimjet
 StartupNotify=true
 EOF32
+fi
 
-
-
-
-cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1 << EOF41
+################### SDB1 #########################################################
+if [ $SDB1SCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1.sh << EOF41
 #!/bin/sh
 
 xhost +local:puppy
@@ -74,13 +82,13 @@ mkdir -p /mnt/sdb1/downloads_linux/.cache/slimjet
 #su - puppy -c "/usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/sdb1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
 EOF41
-chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1
+chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1.sh
 
 cat > /tmp/repo2sfs/usr/share/applications/slimjet-puppy-sdb1.desktop << EOF42
 [Desktop Entry]
 Version=1.0
 Name=Slimjet puppy -sdb1 (2nd DISK-USB) EXTERNAL repo2sfs
-Exec=slimjet-puppy-sdb1
+Exec=slimjet-puppy-sdb1.sh
 Terminal=false
 X-MultipleArgs=false
 Type=Application
@@ -90,6 +98,7 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=Slimjet
 StartupNotify=true
 EOF42
+fi
 
 echo "DONE with CUSTOMAZATION of /tmp/repo2sfs ........ "
 #read -p "Done. Remember to create the puppy user. Press Enter: "

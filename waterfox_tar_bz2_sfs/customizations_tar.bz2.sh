@@ -6,6 +6,12 @@ echo "waterfox browser CUSTOMIZATION SCRIPT (FIREFOX BASED)"
 #chmod 4755 $1/usr/lib/x86_64-linux-gnu/waterfox/waterfox_sandbox
 #jonmod 180514a
 #latest waterfox amd64 https://www.waterfoxproject.org/en-US/waterfox/new/
+
+# set to true (lowercase)  if you want extra scripts/.desktop created
+SDA1SCRIPTS=true
+SDB1SCRIPTS=true
+
+
 mkdir -p "$1/opt"
 touch "./$1/$1.txt"
 echo "NOW COPY"
@@ -45,7 +51,9 @@ StartupWMClass=waterfox
 StartupNotify=true
 EOF2
 
-
+################### SDA1 #########################################################
+if [ $SDA1SCRIPTS == true ]
+then
 cat > $1/usr/bin/waterfox-puppy-sda1.sh << EOF31
 #####   SDA1 #####################################################
 
@@ -72,10 +80,11 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=waterfox
 StartupNotify=true
 EOF32
+fi
 
-
-
-
+################### SDB1 #########################################################
+if [ $SDB1SCRIPTS == true ]
+then
 cat > $1/usr/bin/waterfox-puppy-sdb1.sh << EOF41
 #!/bin/sh
 
@@ -102,7 +111,7 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=waterfox
 StartupNotify=true
 EOF42
-
+fi
 
 
 

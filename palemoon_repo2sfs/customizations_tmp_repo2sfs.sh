@@ -6,6 +6,10 @@ echo "PALEMOON browser CUSTOMIZATION SCRIPT (FIREFOX BASED)"
 #chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/palemoon/palemoon_sandbox
 #jonmod 180514a
 #latest palemoon amd64 https://www.palemoon.com/el/computer/linux
+# set to true (lowercase)  if you want extra scripts/.desktop created
+SDA1SCRIPTS=true
+SDB1SCRIPTS=true
+
 mkdir -p /tmp/repo2sfs/usr/bin
 cp -n ./palemoon_default_sda1_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_sda1_prefs.js
 cp -n ./palemoon_default_sdb1_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_sdb1_prefs.js
@@ -39,9 +43,11 @@ StartupWMClass=palemoon
 StartupNotify=true
 EOF2
 
-
+################### SDA1 #########################################################
+if [ $SDA1SCRIPTS == true ]
+then
 cat > /tmp/repo2sfs/usr/bin/palemoon-puppy-sda1 << EOF31
-#####   SDA1 #####################################################
+
 
 xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/palemoon
@@ -50,6 +56,7 @@ cp -n /usr/bin/palemoon_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/pa
 #su -l puppy -c "palemoon --user-data-dir=/mnt/sda1/downloads_linux/.data/palemoon --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/palemoon --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
 su -l puppy -c 'palemoon -profile "/mnt/sda1/downloads_linux/.data/palemoon" \$1'
 EOF31
+
 chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-sda1
 
 cat > /tmp/repo2sfs/usr/share/applications/palemoon-puppy-sda1.desktop << EOF32
@@ -66,9 +73,12 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=palemoon
 StartupNotify=true
 EOF32
+fi
 
 
-
+################### SDB1 #########################################################
+if [ $SDB1SCRIPTS == true ]
+then
 
 cat > /tmp/repo2sfs/usr/bin/palemoon-puppy-sdb1 << EOF41
 #!/bin/sh
@@ -96,9 +106,7 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=palemoon
 StartupNotify=true
 EOF42
-
-
-cat > /tmp/repo2sfs/usr/bin/palemoon-puppy-sda1 << EOF31
+fi
 
 
 

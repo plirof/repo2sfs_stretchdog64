@@ -6,6 +6,11 @@ echo "ERROR firefox based - CYBERFOX browser CUSTOMIZATION SCRIPT"
 #chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/cyberfox/cyberfox_sandbox
 #jonmod 180514a
 #latest cyberfox amd64 https://cyberfox.8pecxstudios.com/cyberfox-linux/
+
+# set to true (lowercase)  if you want extra scripts/.desktop created
+SDA1SCRIPTS=true
+SDB1SCRIPTS=true
+
 mkdir -p /tmp/repo2sfs/usr/bin
 # needs extras: libnss3 libgconf-2-4
 /tmp/repo2sfs/usr/bin/
@@ -40,6 +45,9 @@ StartupNotify=true
 EOF2
 
 
+################### SDA1 #########################################################
+if [ $SDA1SCRIPTS == true ]
+then
 cat > /tmp/repo2sfs/usr/bin/cyberfox-puppy-sda1 << EOF31
 #!/bin/sh
 
@@ -69,9 +77,11 @@ StartupWMClass=cyberfox
 StartupNotify=true
 EOF32
 
+fi
 
-
-
+################### SDB1 #########################################################
+if [ $SDB1SCRIPTS == true ]
+then
 cat > /tmp/repo2sfs/usr/bin/cyberfox-puppy-sdb1 << EOF41
 #!/bin/sh
 
@@ -100,6 +110,7 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=cyberfox
 StartupNotify=true
 EOF42
+fi
 
 echo "DONE with CUSTOMIZATION of /tmp/repo2sfs ........ "
 #read -p "Done. Remember to create the puppy user. Press Enter: "

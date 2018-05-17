@@ -49,6 +49,7 @@ StartupNotify=true
 Comment=Access the Internet
 EOF2
 
+################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
 then
 cat > $1/usr/bin/vivaldi-puppy-sda1.sh << EOF31
@@ -80,7 +81,7 @@ Comment=Access the Internet
 EOF32
 fi
 
-
+################### SDB1 #########################################################
 if [ $SDB1SCRIPTS == true ]
 then
 cat > $1/usr/bin/vivaldi-puppy-sdb1.sh << EOF41

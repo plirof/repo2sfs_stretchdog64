@@ -20,4 +20,4 @@ TODAYDATE=$(date +'%y%m%d')
 #SQUASH="$1.squashfs"
 #rm -f $SQUASH
 #mksquashfs $BUILDDIR $SQUASH
-mksquashfs $1.extracted $1_v01_$TODAYDATE.squashfs
+mksquashfs $1.extracted $1_auto_v01_$TODAYDATE.squashfs
