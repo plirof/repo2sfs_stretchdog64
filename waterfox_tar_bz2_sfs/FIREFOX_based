@@ -1,0 +1,10 @@
+based on mozille firefox core.
+
+runs like this:
+su -l puppy -c 'fox-based-browser -profile "/mnt/sda1/myprofilefolder" \$1'
+
+
+Prefs are defined like this : 
+user_pref("browser.download.dir", "/mnt/sda1/downloads_linux");
+user_pref("browser.download.folderList", 2);
+user_pref("browser.cache.disk.parent_directory", "/mnt/sda1/downloads_linux/.cache/cyberfox");
