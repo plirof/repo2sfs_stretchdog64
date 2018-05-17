@@ -7,6 +7,7 @@ MYFILENAME=vivaldi-stable_1.15.1147.42-1_amd64.deb
 #dpkg-deb -e $MYFILENAME.deb		#extract the DEBIAN folder to the current directory
 #mkdir -p /tmp/repo2sfs
 #cp DEBIAN/control /tmp/repo2sfs/$MYFILENAME_control.txt
+rm -rf $1.extracted
 uextract $1
 ./customizations_deb_extracted.sh "$1.extracted"
 #mv $MYFILENAME.squashfs $MYFILENAME_$MYVERSION.squashfs
@@ -20,4 +21,4 @@ TODAYDATE=$(date +'%y%m%d')
 #SQUASH="$1.squashfs"
 #rm -f $SQUASH
 #mksquashfs $BUILDDIR $SQUASH
-mksquashfs $1.extracted $1_v01_$TODAYDATE.squashfs
+mksquashfs $1.extracted $1_auto_v01_$TODAYDATE.squashfs

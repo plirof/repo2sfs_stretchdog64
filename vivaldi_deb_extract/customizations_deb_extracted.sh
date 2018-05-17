@@ -3,9 +3,13 @@ echo "vivaldi browser CUSTOMIZATION SCRIPT (Chromium BASED)"
 #############
 # vivaldi CUSTOMIZATION SCRIPT  jonmod 180514a 
 #############
-
 #jonmod 180514a
 #latest vivaldi amd64 https://vivaldi.com/download/
+
+# set to true (lowercase)  if you want extra scripts/.desktop created
+SDA1SCRIPTS=true
+SDB1SCRIPTS=true
+
 #mkdir -p "$1/opt"
 TODAYDATE=$(date +'%y%m%d')
 mv -n "./$1/control" "$1""/""$1""_""$TODAYDATE""_control.txt"
@@ -45,7 +49,8 @@ StartupNotify=true
 Comment=Access the Internet
 EOF2
 
-
+if [ $SDA1SCRIPTS == true ]
+then
 cat > $1/usr/bin/vivaldi-puppy-sda1.sh << EOF31
 #####   SDA1 #####################################################
 
@@ -73,10 +78,11 @@ StartupWMClass=vivaldi
 StartupNotify=true
 Comment=Access the Internet
 EOF32
+fi
 
 
-
-
+if [ $SDB1SCRIPTS == true ]
+then
 cat > $1/usr/bin/vivaldi-puppy-sdb1.sh << EOF41
 #!/bin/sh
 
@@ -104,7 +110,7 @@ StartupWMClass=vivaldi
 StartupNotify=true
 Comment=Access the Internet
 EOF42
-
+fi
 
 
 
