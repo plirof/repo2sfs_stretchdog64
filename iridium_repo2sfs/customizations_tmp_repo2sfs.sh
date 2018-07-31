@@ -10,6 +10,8 @@ SDB1SCRIPTS=true
 
 #chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy
 chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/iridium-browser/iridium-browser_sandbox
+cp ./chrome-sandbox__iridium-browser_58 "/tmp/repo2sfs/usr/lib/iridium-browser/chrome-sandbox"
+chmod 4755 /tmp/repo2sfs/usr/lib/iridium-browser/chrome-sandbox
 #read -p "Done. Remember to create the puppy user. Press Enter: "
 
 
