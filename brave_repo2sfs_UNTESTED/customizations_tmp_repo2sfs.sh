@@ -22,7 +22,7 @@ chmod 4755 /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
 cat > /tmp/repo2sfs/usr/bin/brave-puppy.sh << EOF
 #!/bin/sh
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
+export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.134"
 xhost +local:puppy
 # temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
@@ -52,7 +52,7 @@ if [ $SDA1SCRIPTS == true ]
 then
 cat > /tmp/repo2sfs/usr/bin/brave-puppy-sda1.sh << EOF31
 #!/bin/sh
-export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
+export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.134"
 xhost +local:puppy
 # temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
@@ -86,7 +86,7 @@ if [ $SDB1SCRIPTS == true ]
 then
 cat > /tmp/repo2sfs/usr/bin/brave-puppy-sdb1.sh << EOF41
 #!/bin/sh
-export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
+export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.134"
 xhost +local:puppy
 # temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
@@ -119,17 +119,17 @@ fi
 cat > /tmp/repo2sfs/usr/bin/brave-root-no-sandbox.sh << EOF51
 #!/bin/sh
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
+export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.134"
 #xhost +local:puppy
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 brave --no-sandbox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins \$1
 EOF51
 chmod 755 /tmp/repo2sfs/usr/bin/brave-root-no-sandbox.sh
 
-cat > /tmp/repo2sfs/usr/share/applications/brave_changesdat.desktop << EOF52
+cat > /tmp/repo2sfs/usr/share/applications/brave_root_changesdat.desktop << EOF52
 [Desktop Entry]
 Version=1.0
-Name=brave root no-sandbox -repo2sfs changes.dat
+Name=brave ROOT no-sandbox -repo2sfs changes.dat
 Comment=brave-Browser root --no-sandbox
 Exec=brave-root-no-sandbox.sh
 Terminal=false
