@@ -16,7 +16,9 @@ chmod 4755 /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
 
 #adobe flash link main folder for brave 
 mkdir -p /usr/lib/adobe-flashplugin/
-ln -s /usr/lib/adobe-flashplugin/ /usr/lib/pepperflashplugin-nonfree
+#ln -s /usr/lib/adobe-flashplugin/ /usr/lib/pepperflashplugin-nonfree
+ln -s /tmp/repo2sfs/usr/lib/adobe-flashplugin/ /usr/lib/pepperflashplugin-nonfree
+
 
 
 # needs extras: libnss3 libgconf-2-4
