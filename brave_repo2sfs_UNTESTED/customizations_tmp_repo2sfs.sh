@@ -14,10 +14,10 @@ cp ./chrome-sandbox__iridium-browser_58 "/tmp/repo2sfs/usr/lib/brave/chrome-sand
 chown root /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
 chmod 4755 /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
 
-#adobe flash link main folder for brave 
+#adobe flash link main folder for brave FLASH files should be on /usr/lib/adobe-flashplugin/
 mkdir -p /usr/lib/adobe-flashplugin/
 #ln -s /usr/lib/adobe-flashplugin/ /usr/lib/pepperflashplugin-nonfree
-ln -s /tmp/repo2sfs/usr/lib/adobe-flashplugin/ /usr/lib/pepperflashplugin-nonfree
+ln -s /usr/lib/adobe-flashplugin/ /tmp/repo2sfs/usr/lib/pepperflashplugin-nonfree
 
 
 
