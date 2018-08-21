@@ -9,31 +9,34 @@ SDA1SCRIPTS=true
 SDB1SCRIPTS=true
 
 mkdir -p /tmp/repo2sfs/usr/bin
-chmod 755 /tmp/repo2sfs/usr/share/brave/chrome-wrapper
-chown root /tmp/repo2sfs/usr/share/brave/chrome-sandbox
-chmod 4755 /tmp/repo2sfs/usr/share/brave/chrome-sandbox
+chmod 755 /tmp/repo2sfs/usr/lib/brave/brave
+cp ./chrome-sandbox__iridium-browser_58 "/tmp/repo2sfs/usr/lib/brave/chrome-sandbox"
+chown root /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
+chmod 4755 /tmp/repo2sfs/usr/lib/brave/chrome-sandbox
 
 # needs extras: libnss3 libgconf-2-4
 
 #--------------------------------------------------------------------------------------------------------------------------------
 
 #!/bin/sh
-cat > /tmp/repo2sfs/usr/bin/brave-puppy << EOF
+cat > /tmp/repo2sfs/usr/bin/brave-puppy.sh << EOF
 #!/bin/sh
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
 xhost +local:puppy
+# temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
+echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/share/brave/chrome-wrapper --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins \$1"
+su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins \$1"
 EOF
-chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy
+chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy.sh
 
 cat > /tmp/repo2sfs/usr/share/applications/brave_changesdat.desktop << EOF2
 [Desktop Entry]
 Version=1.0
 Name= brave puppy -repo2sfs changes.dat
 Comment= brave-Browser
-Exec=brave-puppy
+Exec=brave-puppy.sh
 Terminal=false
 X-MultipleArgs=false
 Type=Application
@@ -51,10 +54,12 @@ cat > /tmp/repo2sfs/usr/bin/brave-puppy-sda1.sh << EOF31
 #!/bin/sh
 export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
 xhost +local:puppy
+# temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
+echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sda1/downloads_linux/.data/brave
 mkdir -p /mnt/sda1/downloads_linux/.cache/brave
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/share/brave/chrome-wrapper --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
+su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sda1.sh
 
@@ -83,10 +88,12 @@ cat > /tmp/repo2sfs/usr/bin/brave-puppy-sdb1.sh << EOF41
 #!/bin/sh
 export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171"
 xhost +local:puppy
+# temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
+echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sdb1/downloads_linux/.data/brave
 mkdir -p /mnt/sdb1/downloads_linux/.cache/brave
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/share/brave/chrome-wrapper --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
+su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sdb1.sh
 

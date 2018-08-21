@@ -1,5 +1,5 @@
 #change MYFILENAME and MYVERSION to help renaming
-echo "1st download SWIron from here : https://laptop-updates.brave.com/latest/dev/debian64  , Links can be found from forum eg "
+echo "1st download Brave from here from here : https://laptop-updates.brave.com/latest/dev/debian64  , Links can be found from forum eg "
 #echo "INFO TEXT : when adked for EXTRA packages enter libnss3 libgconf-2-4"
 #echo "INFO TEXT : when adked for EXTRA packages enter libnss3 libgconf-2-4"
 MYFILENAME=brave-amd64-latest.deb
