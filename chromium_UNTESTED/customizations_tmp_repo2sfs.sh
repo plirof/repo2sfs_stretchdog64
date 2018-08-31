@@ -20,6 +20,10 @@ mkdir -p /tmp/repo2sfs/usr/bin
 mkdir -p /tmp/repo2sfs/usr/share/applications/
 # needs extras: libnss3 libgconf-2-4
 
+echo "+++++++++++++ CUSTOMIZATION :  MOVING control and chromedriver +++++++++++++++"
+mv "./chromedriver" "/tmp/repo2sfs/usr/bin/chromedriver"
+mv ./*control.txt "/tmp/repo2sfs/"
+
 
 #!/bin/sh
 

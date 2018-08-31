@@ -9,7 +9,7 @@ wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-b
 wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME_DRIVER".deb"
 #wget "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/chromium_68.0.3440.75-1~deb9u1_amd64.deb"
 
-echo "+++++++++++++ GETTING SPECIFIC FILES FROM DEBs+++++++++++++++"
+echo "+++++++++++++ GETTING SPECIFIC FILES FROM DEBs and COPYING to ./ (they will be moved by the customization script)+++++++++++++++"
 mkdir -p /tmp/repo2sfs
 mkdir -p /tmp/repo2sfs/usr/bin
 mkdir -p /tmp/repo2sfs/usr/share/applications/
@@ -17,13 +17,13 @@ mkdir -p /tmp/repo2sfs/usr/share/applications/
 echo "+++++++++++++ HANDLING $MYFILENAME +++++++++++++++"
 dpkg-deb -x $MYFILENAME.deb	"./"$MYFILENAME"_UNZIP"	#extract the DEBIAN folder to the current directory
 dpkg-deb -e $MYFILENAME.deb	"./"$MYFILENAME"_UNZIP"	#extract the DEBIAN folder to the current directory
-cp $MYFILENAME"_UNZIP/control" "/tmp/repo2sfs/"$MYFILENAME"_control.txt"
+cp $MYFILENAME"_UNZIP/control" "./"$MYFILENAME"_control.txt"
 
 echo "+++++++++++++ $MYFILENAME_DRIVER +++++++++++++++"
 dpkg-deb -x $MYFILENAME_DRIVER".deb" ./$MYFILENAME_DRIVER"_UNZIP"	#extract the DEBIAN folder to the current directory
 dpkg-deb -e $MYFILENAME_DRIVER".deb" ./$MYFILENAME_DRIVER"_UNZIP"	#extract the DEBIAN folder to the current directory
-cp $MYFILENAME_DRIVER"_UNZIP/usr/bin/chromedriver" "/tmp/repo2sfs/usr/bin/chromedriver"
-cp $MYFILENAME_DRIVER"_UNZIP/control" "/tmp/repo2sfs/"$MYFILENAME_DRIVER"_control.txt"
+cp $MYFILENAME_DRIVER"_UNZIP/usr/bin/chromedriver" "./chromedriver"
+cp $MYFILENAME_DRIVER"_UNZIP/control" "./"$MYFILENAME_DRIVER"_control.txt"
 
 echo "+++++++++++++ executing repo2sfs_custom +++++++++++++++"
 ../repo2sfs_custom $MYFILENAME.deb
