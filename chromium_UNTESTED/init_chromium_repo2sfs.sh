@@ -15,13 +15,13 @@ mkdir -p /tmp/repo2sfs/usr/bin
 mkdir -p /tmp/repo2sfs/usr/share/applications/
 #dpkg-deb -e $MYFILENAME.deb		#extract the DEBIAN folder to the current directory
 echo "+++++++++++++ HANDLING $MYFILENAME +++++++++++++++"
-dpkg-deb -x $MYFILENAME.deb	./$MYFILENAME_UNZIP	#extract the DEBIAN folder to the current directory
-dpkg-deb -e $MYFILENAME.deb	./$MYFILENAME_UNZIP	#extract the DEBIAN folder to the current directory
+dpkg-deb -x $MYFILENAME.deb	"./"$MYFILENAME"_UNZIP"	#extract the DEBIAN folder to the current directory
+dpkg-deb -e $MYFILENAME.deb	"./"$MYFILENAME"_UNZIP"	#extract the DEBIAN folder to the current directory
 cp $MYFILENAME"_UNZIP/control" "/tmp/repo2sfs/"$MYFILENAME"_control.txt"
 
 echo "+++++++++++++ $MYFILENAME_DRIVER +++++++++++++++"
-dpkg-deb -x $MYFILENAME_DRIVER".deb"	./$MYFILENAME_DRIVER_UNZIP	#extract the DEBIAN folder to the current directory
-dpkg-deb -e $MYFILENAME_DRIVER".deb"	./$MYFILENAME_DRIVER_UNZIP	#extract the DEBIAN folder to the current directory
+dpkg-deb -x $MYFILENAME_DRIVER".deb" ./$MYFILENAME_DRIVER"_UNZIP"	#extract the DEBIAN folder to the current directory
+dpkg-deb -e $MYFILENAME_DRIVER".deb" ./$MYFILENAME_DRIVER"_UNZIP"	#extract the DEBIAN folder to the current directory
 cp $MYFILENAME_DRIVER"_UNZIP/usr/bin/chromedriver" "/tmp/repo2sfs/usr/bin/chromedriver"
 cp $MYFILENAME_DRIVER"_UNZIP/control" "/tmp/repo2sfs/"$MYFILENAME_DRIVER"_control.txt"
 
