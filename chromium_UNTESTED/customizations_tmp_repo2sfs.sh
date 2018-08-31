@@ -35,7 +35,7 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy.sh << EOF
 #export chromium-browser_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154  --media-cache-size=10000000"
 xhost +local:puppy
 #su - puppy -c "/usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=30.0.0.154"
-su -l puppy -c "chromium-browser --user-data-dir=/home/puppy/.data/chromium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/chromium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
+su -l puppy -c "chromium --user-data-dir=/home/puppy/.data/chromium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/chromium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy.sh
 
@@ -47,10 +47,10 @@ Exec=chromium-browser-puppy.sh
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=/usr/share/pixmaps/chromium-browser.xpm
+Icon=/usr/share/pixmaps/chromium.xpm
 Categories=Network;
 MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
-StartupWMClass=chromium-browser
+StartupWMClass=chromium
 StartupNotify=true
 EOF2
 
@@ -64,8 +64,8 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sda1.sh << EOF31
 xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sda1/downloads_linux/.cache/chromium-browser
-#su - puppy -c "/usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "chromium-browser --user-data-dir=/mnt/sda1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
+#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+su -l puppy -c "chromium --user-data-dir=/mnt/sda1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sda1.sh
 
@@ -78,7 +78,7 @@ Comment=Browser saves to sda1 C:
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=/usr/share/pixmaps/chromium-browser.xpm
+Icon=/usr/share/pixmaps/chromium.xpm
 Categories=Network;
 MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
 StartupWMClass=chromium-browser
@@ -96,8 +96,8 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sdb1.sh << EOF41
 xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sdb1/downloads_linux/.cache/chromium-browser
-#su - puppy -c "/usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "chromium-browser --user-data-dir=/mnt/sdb1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
+#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+su -l puppy -c "chromium --user-data-dir=/mnt/sdb1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sdb1.sh
 
@@ -110,7 +110,7 @@ Comment=Browser saves to sdb1 usb flash or maybe D:
 Terminal=false
 X-MultipleArgs=false
 Type=Application
-Icon=/usr/share/pixmaps/chromium-browser.xpm
+Icon=/usr/share/pixmaps/chromium.xpm
 Categories=Network;
 MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
 StartupWMClass=chromium-browser
