@@ -5,8 +5,9 @@ echo "UNTESTED (maybe have dependecies)  IRIDIUM browser CUSTOMIZATION SCRIPT"
 #############
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 #chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy
 chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/iridium-browser/iridium-browser_sandbox
@@ -50,6 +51,35 @@ StartupWMClass=iridium-browser
 StartupNotify=true
 EOF2
 
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/iridium-browser-puppy-home.sh << EOF61
+#!/bin/sh
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/iridium-browser
+mkdir -p /mnt/home/downloads_linux/.cache/iridium-browser
+su -l puppy -c "iridium-browser --user-data-dir=/mnt/home/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$1"
+EOF61
+chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/iridium-browser-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=iridium-browser puppy -home EXTERNAL repo2sfs
+Exec=iridium-browser-puppy-home.sh
+Comment=Browser saves to home
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/iridium-browser.png
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=iridium-browser
+StartupNotify=true
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
