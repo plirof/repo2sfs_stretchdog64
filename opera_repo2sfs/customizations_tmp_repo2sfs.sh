@@ -5,8 +5,10 @@ echo "OPERA browser CUSTOMIZATION SCRIPT"
 #############
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
+
 
 chmod 4755 /tmp/repo2sfs/usr/lib/x86_64-linux-gnu/opera/opera_sandbox
 #jonmod 180514a
@@ -41,6 +43,36 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=Opera
 StartupNotify=true
 EOF2
+
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/opera-puppy-home.sh << EOF61
+#!/bin/sh
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/opera
+mkdir -p /mnt/home/downloads_linux/.cache/opera
+#su - puppy -c "/usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+su -l puppy -c "opera --user-data-dir=/mnt/home/downloads_linux/.data/opera --disk-cache-dir=/mnt/home/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$1"
+EOF61
+chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/opera-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=Opera puppy -home(C:) EXTERNAL repo2sfs
+Exec=opera-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/opera.xpm
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Opera
+StartupNotify=true
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
