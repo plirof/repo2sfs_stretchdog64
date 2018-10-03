@@ -19,21 +19,21 @@ mkdir -p /tmp/repo2sfs/usr/bin
 
 #!/bin/sh
 
-cat > /tmp/repo2sfs/usr/bin/opera-puppy << EOF
+cat > /tmp/repo2sfs/usr/bin/opera-puppy.sh << EOF
 #!/bin/sh
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 #export opera_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
 #su - puppy -c "/usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "opera --user-data-dir=/home/puppy/.data/opera_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/opera_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
+su -l puppy -c "opera --user-data-dir=/home/puppy/.data/opera_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/opera_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=31.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
 EOF
-chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy
+chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy.sh
 
 cat > /tmp/repo2sfs/usr/share/applications/opera_changesdat.desktop << EOF2
 [Desktop Entry]
 Version=1.0
 Name=Opera puppy -repo2sfs changes.dat
-Exec=opera-puppy
+Exec=opera-puppy.sh
 Terminal=false
 X-MultipleArgs=false
 Type=Application
