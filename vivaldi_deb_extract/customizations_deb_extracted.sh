@@ -7,8 +7,9 @@ echo "vivaldi browser CUSTOMIZATION SCRIPT (Chromium BASED)"
 #latest vivaldi amd64 https://vivaldi.com/download/
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 #mkdir -p "$1/opt"
 TODAYDATE=$(date +'%y%m%d')
@@ -48,6 +49,38 @@ StartupWMClass=vivaldi
 StartupNotify=true
 Comment=Access the Internet
 EOF2
+
+################### home #########################################################
+if [ $homeSCRIPTS == true ]
+then
+cat > $1/usr/bin/vivaldi-puppy-home.sh << EOF61
+#####   home #####################################################
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/vivaldi
+mkdir -p /mnt/home/downloads_linux/.cache/vivaldi
+cp -n /usr/bin/vivaldi_default_home_prefs.js /mnt/home/downloads_linux/.data/vivaldi/prefs.js
+#su -l puppy -c "/opt/vivaldi/vivaldi --user-data-dir=/mnt/home/downloads_linux/.data/vivaldi --disk-cache-dir=/mnt/home/downloads_linux/.cache/vivaldi --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+su -l puppy -c "vivaldi-stable --user-data-dir=/mnt/home/downloads_linux/.data/vivaldi --disk-cache-dir=/mnt/home/downloads_linux/.cache/vivaldi --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+EOF61
+chmod 755 $1/usr/bin/vivaldi-puppy-home.sh
+
+cat > $1/usr/share/applications/vivaldi-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=vivaldi puppy -home(C:) EXTERNAL repo2sfs
+Exec=vivaldi-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/vivaldi/product_logo_32.png
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=vivaldi
+StartupNotify=true
+Comment=Access the Internet
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
