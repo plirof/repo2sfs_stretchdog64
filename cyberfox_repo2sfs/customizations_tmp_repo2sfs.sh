@@ -10,13 +10,14 @@ echo "ERROR firefox based - CYBERFOX browser CUSTOMIZATION SCRIPT"
 # set to true (lowercase)  if you want extra scripts/.desktop created
 SDA1SCRIPTS=true
 SDB1SCRIPTS=true
+HOMESCRIPTS=true
 
 mkdir -p /tmp/repo2sfs/usr/bin
 # needs extras: libnss3 libgconf-2-4
 /tmp/repo2sfs/usr/bin/
 cp -n ./cyberfox_default_sda1_prefs.js /tmp/repo2sfs/usr/bin/cyberfox_default_sda1_prefs.js
 cp -n ./cyberfox_default_sdb1_prefs.js /tmp/repo2sfs/usr/bin/cyberfox_default_sdb1_prefs.js
-
+cp -n ./cyberfox_default_home_prefs.js /tmp/repo2sfs/usr/bin/cyberfox_default_home_prefs.js
 #!/bin/sh
 
 cat > /tmp/repo2sfs/usr/bin/cyberfox-puppy << EOF
@@ -44,6 +45,39 @@ StartupWMClass=cyberfox
 StartupNotify=true
 EOF2
 
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/cyberfox-puppy-home.sh << EOF61
+#!/bin/sh
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/cyberfox
+mkdir -p /mnt/home/downloads_linux/.cache/cyberfox
+cp -n /usr/bin/cyberfox_default_home_prefs.js /mnt/home/downloads_linux/.data/cyberfox/prefs.js
+
+#su - puppy -c "/usr/bin/cyberfox  --user-data-dir=/home/puppy/cyberfox_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+su -l puppy -c 'cyberfox -profile "/mnt/home/downloads_linux/.data/cyberfox" \$1'
+EOF61
+
+chmod 755 /tmp/repo2sfs/usr/bin/cyberfox-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/cyberfox-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=cyberfox puppy -home(C:) EXTERNAL repo2sfs
+Exec=cyberfox-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/cyberfox.png
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=cyberfox
+StartupNotify=true
+EOF62
+
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
