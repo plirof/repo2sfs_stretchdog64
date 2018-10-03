@@ -8,9 +8,9 @@ echo "waterfox browser CUSTOMIZATION SCRIPT (FIREFOX BASED)"
 #latest waterfox amd64 https://www.waterfoxproject.org/en-US/waterfox/new/
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
-
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 mkdir -p "$1/opt"
 touch "./$1/$1.txt"
@@ -21,6 +21,7 @@ mkdir -p $1/usr/bin
 mkdir -p $1/usr/share/applications
 cp -n ./waterfox_default_sda1_prefs.js $1/usr/bin/waterfox_default_sda1_prefs.js
 cp -n ./waterfox_default_sdb1_prefs.js $1/usr/bin/waterfox_default_sdb1_prefs.js
+cp -n ./waterfox_default_home_prefs.js $1/usr/bin/waterfox_default_home_prefs.js
 # needs extras: libnss3 libgconf-2-4
 
 
@@ -51,6 +52,36 @@ StartupWMClass=waterfox
 StartupNotify=true
 EOF2
 
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > $1/usr/bin/waterfox-puppy-home.sh << EOF61
+#####   home #####################################################
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/waterfox
+mkdir -p /mnt/home/downloads_linux/.cache/waterfox
+cp -n /usr/bin/waterfox_default_home_prefs.js /mnt/home/downloads_linux/.data/waterfox/prefs.js
+#su -l puppy -c "/opt/waterfox/waterfox --user-data-dir=/mnt/home/downloads_linux/.data/waterfox --disk-cache-dir=/mnt/home/downloads_linux/.cache/waterfox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+su -l puppy -c '/opt/waterfox/waterfox -profile "/mnt/home/downloads_linux/.data/waterfox" \$1'
+EOF61
+chmod 755 $1/usr/bin/waterfox-puppy-home.sh
+
+cat > $1/usr/share/applications/waterfox-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=waterfox puppy -home(C:) EXTERNAL repo2sfs
+Exec=waterfox-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/waterfox.xpm
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=waterfox
+StartupNotify=true
+EOF62
+fi
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
 then
