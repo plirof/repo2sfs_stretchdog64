@@ -7,14 +7,16 @@ echo "PALEMOON browser CUSTOMIZATION SCRIPT (FIREFOX BASED)"
 #jonmod 180514a
 #latest palemoon amd64 https://www.palemoon.com/el/computer/linux
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDA2SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDA2SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 mkdir -p /tmp/repo2sfs/usr/bin
 cp -n ./palemoon_default_sda1_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_sda1_prefs.js
 cp -n ./palemoon_default_sda2_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_sda2_prefs.js
 cp -n ./palemoon_default_sdb1_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_sdb1_prefs.js
+cp -n ./palemoon_default_home_prefs.js /tmp/repo2sfs/usr/bin/palemoon_default_home_prefs.js
 # needs extras: libnss3 libgconf-2-4
 
 
@@ -44,6 +46,35 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=palemoon
 StartupNotify=true
 EOF2
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/palemoon-puppy-home.sh << EOF61
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/palemoon
+mkdir -p /mnt/home/downloads_linux/.cache/palemoon
+cp -n /usr/bin/palemoon_default_home_prefs.js /mnt/home/downloads_linux/.data/palemoon/prefs.js
+#su -l puppy -c "palemoon --user-data-dir=/mnt/home/downloads_linux/.data/palemoon --disk-cache-dir=/mnt/home/downloads_linux/.cache/palemoon --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+su -l puppy -c 'palemoon -profile "/mnt/home/downloads_linux/.data/palemoon" \$1'
+EOF61
+
+chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/palemoon-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=palemoon puppy -home(C:) EXTERNAL repo2sfs
+Exec=palemoon-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/palemoon.xpm
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=palemoon
+StartupNotify=true
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
