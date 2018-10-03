@@ -6,8 +6,9 @@ echo "SLIMJET flashpeak browser CUSTOMIZATION SCRIPT"
 #latest slimjet amd64 https://www.slimjetbrowser.com/release/slimjet_amd64.deb
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 mkdir -p /tmp/repo2sfs/usr/bin
 # needs extras: libnss3 libgconf-2-4
@@ -39,6 +40,35 @@ MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme
 StartupWMClass=Slimjet
 StartupNotify=true
 EOF2
+
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-home.sh << EOF61
+#!/bin/sh
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/slimjet
+mkdir -p /mnt/home/downloads_linux/.cache/slimjet
+su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/home/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/home/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$1"
+EOF61
+chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/slimjet-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=Slimjet puppy -home EXTERNAL repo2sfs
+Exec=slimjet-puppy-home.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/slimjet.xpm
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Slimjet
+StartupNotify=true
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]
