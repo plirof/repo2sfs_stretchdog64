@@ -8,8 +8,8 @@ echo "ERROR firefox based - CYBERFOX browser CUSTOMIZATION SCRIPT"
 #latest cyberfox amd64 https://cyberfox.8pecxstudios.com/cyberfox-linux/
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
 HOMESCRIPTS=true
 
 mkdir -p /tmp/repo2sfs/usr/bin

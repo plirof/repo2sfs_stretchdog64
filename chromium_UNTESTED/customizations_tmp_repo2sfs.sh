@@ -5,8 +5,9 @@ echo "UNTESTED (maybe have dependecies)  chromium browser CUSTOMIZATION SCRIPT"
 #############
 
 # set to true (lowercase)  if you want extra scripts/.desktop created
-SDA1SCRIPTS=true
-SDB1SCRIPTS=true
+SDA1SCRIPTS=false
+SDB1SCRIPTS=false
+HOMESCRIPTS=true
 
 chmod 4755 /tmp/repo2sfs/usr/lib/chromium/chrome-sandbox
 #read -p "Done. Remember to create the puppy user. Press Enter: "
@@ -54,6 +55,36 @@ StartupWMClass=chromium
 StartupNotify=true
 EOF2
 
+################### home #########################################################
+if [ $HOMESCRIPTS == true ]
+then
+cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-home.sh << EOF61
+#!/bin/sh
+
+xhost +local:puppy
+mkdir -p /mnt/home/downloads_linux/.data/chromium-browser
+mkdir -p /mnt/home/downloads_linux/.cache/chromium-browser
+
+su -l puppy -c "chromium --user-data-dir=/mnt/home/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.154 \$1"
+EOF61
+chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-home.sh
+
+cat > /tmp/repo2sfs/usr/share/applications/chromium-browser-puppy-home.desktop << EOF62
+[Desktop Entry]
+Version=1.0
+Name=chromium-browser puppy -home EXTERNAL repo2sfs
+Exec=chromium-browser-puppy-home.sh
+Comment=Browser saves to home usb flash or maybe D:
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/pixmaps/chromium.xpm
+Categories=Network;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=chromium-browser
+StartupNotify=true
+EOF62
+fi
 
 ################### SDA1 #########################################################
 if [ $SDA1SCRIPTS == true ]

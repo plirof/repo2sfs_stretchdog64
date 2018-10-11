@@ -1,8 +1,8 @@
 #change MYFILENAME and MYVERSION to help renaming
 echo "1st MANUALLY download chromium from here : http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/  , https://packages.debian.org/stretch/amd64/chromium/download  , example link http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/chromium_68.0.3440.75-1~deb9u1_amd64.deb "
 #echo "INFO TEXT : when adked for EXTRA packages enter libnss3 libgconf-2-4"
-MYFILENAME=chromium_68.0.3440.75-1~deb9u1_amd64
-MYFILENAME_DRIVER=chromium-driver_68.0.3440.75-1~deb9u1_amd64
+MYFILENAME=chromium_69.0.3497.92-1~deb9u1_amd64
+MYFILENAME_DRIVER=chromium-driver_69.0.3497.92-1~deb9u1_amd64
 #MYVERSION=_18.0.5.0_20180426_repo2sfs_v01
 echo "+++++++++++++ DOWNLOADING DEBs+++++++++++++++"
 wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME".deb"
