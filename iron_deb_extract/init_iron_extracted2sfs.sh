@@ -24,7 +24,8 @@ TODAYDATE=$(date +'%y%m%d')
 #SQUASH="$1.squashfs"
 #rm -f $SQUASH
 #mksquashfs $BUILDDIR $SQUASH
-mksquashfs $MYFILENAME.extracted $MYFILENAME_auto_v01_$TODAYDATE.squashfs
+#mksquashfs $MYFILENAME.extracted $MYFILENAME_auto_v01_$TODAYDATE.squashfs
+mksquashfs $MYFILENAME.extracted "$MYFILENAME""_auto_v01_"$TODAYDATE".squashfs"
 
 
 #mv $MYFILENAME.squashfs $MYFILENAME_$MYVERSION.squashfs
