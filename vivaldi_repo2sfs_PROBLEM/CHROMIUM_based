@@ -1,5 +1,0 @@
- based on Chromium core.
-
-runs like this:
-su -l puppy -c "chromium --user-data-dir=/mnt/sda1/myprofiledata --disk-cache-dir=/mnt/sda1/myprofilecache --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-
