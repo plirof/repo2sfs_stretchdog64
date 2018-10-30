@@ -14,7 +14,7 @@ HOMESCRIPTS=true
 #mkdir -p "$1/opt"
 TODAYDATE=$(date +'%y%m%d')
 mv -n "./$1/control" "$1""/""$1""_""$TODAYDATE""_control.txt"
-chmod 4755 $1/opt/vivaldi/vivaldi_sandbox
+chmod 4755 ./$1/opt/vivaldi/vivaldi_sandbox
 
 #mkdir -p $1/usr/bin
 #mkdir -p $1/usr/share/applications
