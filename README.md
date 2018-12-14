@@ -13,7 +13,7 @@ repo2sfs - custom squashfs creation scripts
 
 ## Currently supported with manual download
  - Cyberfox Browser
- - Opera Browser
+ - Opera Browser deb_extract
  - Palemoon Browser
  - vivaldi_deb_extract Browser
  - Waterfox Browser
