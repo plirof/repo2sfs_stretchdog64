@@ -51,7 +51,7 @@ Comment=Access the Internet
 EOF2
 
 ################### home #########################################################
-if [ $homeSCRIPTS == true ]
+if [ $HOMESCRIPTS == true ]
 then
 cat > $1/usr/bin/vivaldi-puppy-home.sh << EOF61
 #####   home #####################################################
