@@ -1,12 +1,36 @@
-#change MYFILENAME and MYVERSION to help renaming
-echo "1st MANUALLY download chromium from here : http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/  , https://packages.debian.org/stretch/amd64/chromium/download  , example link http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/chromium_68.0.3440.75-1~deb9u1_amd64.deb "
+# From www.googleapis.com  -chrome version 20200322
+# You MUST enter LATERS_BUILD version
+
+
+echo "For older GLibC builds check here : (main link) https://www.chromium.org/getting-involved/download-chromium    "
+echo "Check here for latest debian build (file LAST_CHANGE inside linux_x64 folder ) : https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?generation=1585112888926871&alt=media"
+echo "eg for latest build 753130 : https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_x64/753130/"
+echo "all OS builds are here :https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html"
 #echo "INFO TEXT : when adked for EXTRA packages enter libnss3 libgconf-2-4"
-MYFILENAME=chromium_69.0.3497.92-1~deb9u1_amd64
-MYFILENAME_DRIVER=chromium-driver_69.0.3497.92-1~deb9u1_amd64
+LATEST_BUILD="753130"
+MYFILENAME="Linux_x64_"$LATEST_BUILD"_chrome-linux"$(date +%F)".zip"
+
+WGET_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F"$LATEST_BUILD"%2Fchrome-linux.zip?generation=1585112877406284&alt=media"
+
+#MYFILENAME_DRIVER=chromium-driver_69.0.3497.92-1~deb9u1_amd64
 #MYVERSION=_18.0.5.0_20180426_repo2sfs_v01
-echo "+++++++++++++ DOWNLOADING DEBs+++++++++++++++"
-wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME".deb"
-wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME_DRIVER".deb"
+
+echo "----------------------------------"
+echo "MYFILENAME========= $MYFILENAME"
+echo "WGET_URL==$WGET_URL"
+echo "----------------------------------"
+
+
+echo "+++++++++++++ DOWNLOADING DEBs (chrome version 20200322+++++++++++++++"
+
+wget -O "$MYFILENAME" "$WGET_URL"
+
+
+
+
+#echo "+++++++++++++ DOWNLOADING DEBs (OLD -not updated)+++++++++++++++"
+#wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME".deb"
+#wget  "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/"$MYFILENAME_DRIVER".deb"
 #wget "http://security.debian.org/debian-security/pool/updates/main/c/chromium-browser/chromium_68.0.3440.75-1~deb9u1_amd64.deb"
 
 echo "+++++++++++++ GETTING SPECIFIC FILES FROM DEBs and COPYING to ./ (they will be moved by the customization script)+++++++++++++++"

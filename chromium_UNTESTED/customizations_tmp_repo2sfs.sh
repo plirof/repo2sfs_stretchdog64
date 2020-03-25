@@ -9,7 +9,17 @@ SDA1SCRIPTS=false
 SDB1SCRIPTS=false
 HOMESCRIPTS=true
 
-chmod 4755 /tmp/repo2sfs/usr/lib/chromium/chrome-sandbox
+#chmod 4755 /tmp/repo2sfs/usr/lib/chromium/chrome-sandbox
+
+#cp -n /tmp/repo2sfs/usr/lib/chrome-linux/chrome_sandbox /tmp/repo2sfs/usr/lib/chromium/chrome-sandbox
+#sudo chown root /tmp/repo2sfs/usr/lib/chrome-linux/chrome-sandbox
+#sudo chmod 4755 /tmp/repo2sfs/usr/lib/chrome-linux/chrome-sandbox
+#sudo chmod 4755 /tmp/repo2sfs/usr/lib/chrome-linux/chrome-wrapper
+
+#original sandbox file (I think they are NOT used (thats why I cp to chrome-sandbox))
+#sudo chown root /tmp/repo2sfs/usr/lib/chrome-linux/chrome_sandbox
+#sudo chmod 4755 /tmp/repo2sfs/usr/lib/chrome-linux/chrome_sandbox
+
 #read -p "Done. Remember to create the puppy user. Press Enter: "
 
 
@@ -35,6 +45,16 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy.sh << EOF
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 #export chromium-browser_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154  --media-cache-size=10000000"
 xhost +local:puppy
+#cp -n /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+ln -s /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+sudo chown root /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-wrapper
+
+#original sandbox file (I think they are NOT used (thats why I cp to chrome-sandbox))
+sudo chown root /usr/lib/chrome-linux/chrome_sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
+
 #su - puppy -c "/usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=30.0.0.154"
 su -l puppy -c "chromium --user-data-dir=/home/puppy/.data/chromium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/chromium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
 EOF
@@ -62,6 +82,16 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-home.sh << EOF61
 #!/bin/sh
 
 xhost +local:puppy
+#cp -n /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+ln -s /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+sudo chown root /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-wrapper
+
+#original sandbox file (I think they are NOT used (thats why I cp to chrome-sandbox))
+sudo chown root /usr/lib/chrome-linux/chrome_sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
+
 mkdir -p /mnt/home/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/home/downloads_linux/.cache/chromium-browser
 
@@ -93,6 +123,16 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sda1.sh << EOF31
 #!/bin/sh
 
 xhost +local:puppy
+#cp -n /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+ln -s /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+sudo chown root /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-wrapper
+
+#original sandbox file (I think they are NOT used (thats why I cp to chrome-sandbox))
+sudo chown root /usr/lib/chrome-linux/chrome_sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
+
 mkdir -p /mnt/sda1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sda1/downloads_linux/.cache/chromium-browser
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
@@ -125,6 +165,16 @@ cat > /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sdb1.sh << EOF41
 #!/bin/sh
 
 xhost +local:puppy
+#cp -n /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+ln -s /usr/lib/chrome-linux/chrome_sandbox /usr/lib/chrome-linux/chrome-sandbox
+sudo chown root /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome-wrapper
+
+#original sandbox file (I think they are NOT used (thats why I cp to chrome-sandbox))
+sudo chown root /usr/lib/chrome-linux/chrome_sandbox
+sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
+
 mkdir -p /mnt/sdb1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sdb1/downloads_linux/.cache/chromium-browser
 #su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
