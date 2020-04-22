@@ -6,7 +6,7 @@ mkdir -p /tmp/repo2sfs/usr/bin
 cat > /tmp/repo2sfs/usr/bin/iron-puppy << EOF
 #!/bin/sh
 xhost +local:puppy
-sudo -u puppy /usr/share/iron/chrome-wrapper "$@"
+sudo -u puppy /usr/share/iron/chrome-wrapper "\$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/iron-puppy
 

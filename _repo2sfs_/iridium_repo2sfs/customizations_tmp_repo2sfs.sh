@@ -32,7 +32,7 @@ cat > /tmp/repo2sfs/usr/bin/iridium-browser-puppy << EOF
 #export iridium-browser_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
 #sudo -u puppy /usr/bin/iridium-browser  --user-data-dir=/home/puppy/iridium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy iridium-browser --user-data-dir=/home/puppy/.data/iridium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/iridium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "$@"
+sudo -u puppy iridium-browser --user-data-dir=/home/puppy/.data/iridium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/iridium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "\$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy
 
@@ -60,7 +60,7 @@ cat > /tmp/repo2sfs/usr/bin/iridium-browser-puppy-home.sh << EOF61
 xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/iridium-browser
 mkdir -p /mnt/home/downloads_linux/.cache/iridium-browser
-sudo -u puppy iridium-browser --user-data-dir=/mnt/home/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "$@"
+sudo -u puppy iridium-browser --user-data-dir=/mnt/home/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "\$@"
 EOF61
 chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy-home.sh
 
@@ -91,7 +91,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/iridium-browser
 mkdir -p /mnt/sda1/downloads_linux/.cache/iridium-browser
 #sudo -u puppy /usr/bin/iridium-browser  --user-data-dir=/home/puppy/iridium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy iridium-browser --user-data-dir=/mnt/sda1/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy iridium-browser --user-data-dir=/mnt/sda1/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "\$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy-sda1.sh
 
@@ -123,7 +123,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/iridium-browser
 mkdir -p /mnt/sdb1/downloads_linux/.cache/iridium-browser
 #sudo -u puppy /usr/bin/iridium-browser  --user-data-dir=/home/puppy/iridium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy iridium-browser --user-data-dir=/mnt/sdb1/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy iridium-browser --user-data-dir=/mnt/sdb1/downloads_linux/.data/iridium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/iridium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "\$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/iridium-browser-puppy-sdb1.sh
 

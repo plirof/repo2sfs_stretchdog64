@@ -59,7 +59,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/waterfox
 mkdir -p /mnt/home/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_home_prefs.js /mnt/home/downloads_linux/.data/waterfox/prefs.js
-sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/home/downloads_linux/.data/waterfox" "$@"
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/home/downloads_linux/.data/waterfox" "\$@"
 EOF61
 chmod 755 $1/usr/bin/waterfox-puppy-home.sh
 
@@ -88,7 +88,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/waterfox
 mkdir -p /mnt/sda1/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/waterfox/prefs.js
-sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "$@"
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "\$@"
 EOF31
 chmod 755 $1/usr/bin/waterfox-puppy-sda1.sh
 
@@ -118,7 +118,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/waterfox
 mkdir -p /mnt/sdb1/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_sdb1_prefs.js /mnt/sdb1/downloads_linux/.data/waterfox/prefs.js
-sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "$@"
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "\$@"
 EOF41
 chmod 755 $1/usr/bin/waterfox-puppy-sdb1.sh
 

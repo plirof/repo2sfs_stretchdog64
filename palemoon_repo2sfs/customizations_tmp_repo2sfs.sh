@@ -51,7 +51,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/palemoon
 mkdir -p /mnt/home/downloads_linux/.cache/palemoon
 cp -n /usr/bin/palemoon_default_home_prefs.js /mnt/home/downloads_linux/.data/palemoon/prefs.js
-sudo -u puppy palemoon -profile "/mnt/home/downloads_linux/.data/palemoon" "$@"
+sudo -u puppy palemoon -profile "/mnt/home/downloads_linux/.data/palemoon" "\$@"
 EOF61
 
 chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-home.sh
@@ -82,7 +82,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/palemoon
 mkdir -p /mnt/sda1/downloads_linux/.cache/palemoon
 cp -n /usr/bin/palemoon_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/palemoon/prefs.js
-sudo -u puppy palemoon -profile "/mnt/sda1/downloads_linux/.data/palemoon" "$@"
+sudo -u puppy palemoon -profile "/mnt/sda1/downloads_linux/.data/palemoon" "\$@"
 EOF31
 
 chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-sda1
@@ -115,7 +115,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/palemoon
 mkdir -p /mnt/sdb1/downloads_linux/.cache/palemoon
 cp -n /usr/bin/palemoon_default_sdb1_prefs.js /mnt/sdb1/downloads_linux/.data/palemoon/prefs.js
-sudo -u puppy palemoon -profile "/mnt/sda1/downloads_linux/.data/palemoon" "$@"
+sudo -u puppy palemoon -profile "/mnt/sda1/downloads_linux/.data/palemoon" "\$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-sdb1
 
@@ -145,7 +145,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda2/downloads_linux/.data/palemoon
 mkdir -p /mnt/sda2/downloads_linux/.cache/palemoon
 cp -n /usr/bin/palemoon_default_sda2_prefs.js /mnt/sda2/downloads_linux/.data/palemoon/prefs.js
-sudo -u puppy palemoon -profile "/mnt/sda2/downloads_linux/.data/palemoon" "$@"
+sudo -u puppy palemoon -profile "/mnt/sda2/downloads_linux/.data/palemoon" "\$@"
 EOF51
 
 chmod 755 /tmp/repo2sfs/usr/bin/palemoon-puppy-sda2

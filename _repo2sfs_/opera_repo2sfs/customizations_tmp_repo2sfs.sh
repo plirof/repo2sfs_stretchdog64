@@ -25,7 +25,7 @@ cat > /tmp/repo2sfs/usr/bin/opera-puppy.sh << EOF
 #export opera_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
 #sudo -u puppy /usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy opera --user-data-dir=/home/puppy/.data/opera_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/opera_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=31.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "$@"
+sudo -u puppy opera --user-data-dir=/home/puppy/.data/opera_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/opera_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=31.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "\$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy.sh
 
@@ -54,7 +54,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/opera
 mkdir -p /mnt/home/downloads_linux/.cache/opera
 #sudo -u puppy /usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy opera --user-data-dir=/mnt/home/downloads_linux/.data/opera --disk-cache-dir=/mnt/home/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "$@"
+sudo -u puppy opera --user-data-dir=/mnt/home/downloads_linux/.data/opera --disk-cache-dir=/mnt/home/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "\$@"
 EOF61
 chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy-home.sh
 
@@ -84,7 +84,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/opera
 mkdir -p /mnt/sda1/downloads_linux/.cache/opera
 #sudo -u puppy /usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy opera --user-data-dir=/mnt/sda1/downloads_linux/.data/opera --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy opera --user-data-dir=/mnt/sda1/downloads_linux/.data/opera --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "\$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy-sda1.sh
 
@@ -114,7 +114,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/opera
 mkdir -p /mnt/sdb1/downloads_linux/.cache/opera
 #sudo -u puppy /usr/bin/opera  --user-data-dir=/home/puppy/opera_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy opera --user-data-dir=/mnt/sdb1/downloads_linux/.data/opera --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy opera --user-data-dir=/mnt/sdb1/downloads_linux/.data/opera --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/opera --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "\$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy-sdb1.sh
 

@@ -34,7 +34,7 @@ xhost +local:puppy
 # temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 #sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy /usr/lib/brave/brave --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins "$@"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins "\$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy.sh
 
@@ -66,7 +66,7 @@ echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sda1/downloads_linux/.data/brave
 mkdir -p /mnt/sda1/downloads_linux/.cache/brave
 #sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "$@"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "\$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sda1.sh
 
@@ -100,7 +100,7 @@ echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sdb1/downloads_linux/.data/brave
 mkdir -p /mnt/sdb1/downloads_linux/.cache/brave
 #sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "$@"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "\$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sdb1.sh
 

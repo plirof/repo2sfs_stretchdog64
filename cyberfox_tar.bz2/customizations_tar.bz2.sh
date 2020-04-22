@@ -61,7 +61,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/cyberfox
 mkdir -p /mnt/home/downloads_linux/.cache/cyberfox
 cp -n /usr/bin/cyberfox_default_home_prefs.js /mnt/home/downloads_linux/.data/cyberfox/prefs.js
-sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/home/downloads_linux/.data/cyberfox" "$@"
+sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/home/downloads_linux/.data/cyberfox" "\$@"
 EOF61
 chmod 755 $1/usr/bin/cyberfox-puppy-home.sh
 
@@ -90,7 +90,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/cyberfox
 mkdir -p /mnt/sda1/downloads_linux/.cache/cyberfox
 cp -n /usr/bin/cyberfox_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/cyberfox/prefs.js
-sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/sda1/downloads_linux/.data/cyberfox" "$@"
+sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/sda1/downloads_linux/.data/cyberfox" "\$@"
 EOF31
 chmod 755 $1/usr/bin/cyberfox-puppy-sda1.sh
 
@@ -120,7 +120,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/cyberfox
 mkdir -p /mnt/sdb1/downloads_linux/.cache/cyberfox
 cp -n /usr/bin/cyberfox_default_sdb1_prefs.js /mnt/sdb1/downloads_linux/.data/cyberfox/prefs.js
-sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/sda1/downloads_linux/.data/cyberfox" "$@"
+sudo -u puppy /opt/cyberfox/cyberfox -profile "/mnt/sda1/downloads_linux/.data/cyberfox" "\$@"
 EOF41
 chmod 755 $1/usr/bin/cyberfox-puppy-sdb1.sh
 
