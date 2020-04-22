@@ -33,8 +33,8 @@ export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflash
 xhost +local:puppy
 # temporary solve the no-sandbox error  (https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977)
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins \$1"
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/home/puppy/brave_puppy_user_data_dir --disk-cache-dir=/home/puppy/brave_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins "$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy.sh
 
@@ -65,8 +65,8 @@ xhost +local:puppy
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sda1/downloads_linux/.data/brave
 mkdir -p /mnt/sda1/downloads_linux/.cache/brave
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sda1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sda1.sh
 
@@ -99,8 +99,8 @@ xhost +local:puppy
 echo 1 > /proc/sys/kernel/unprivileged_userns_clone
 mkdir -p /mnt/sdb1/downloads_linux/.data/brave
 mkdir -p /mnt/sdb1/downloads_linux/.cache/brave
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "/usr/lib/brave/brave --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy /usr/lib/brave/brave --user-data-dir=/mnt/sdb1/downloads_linux/.data/brave --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/brave --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins --disk-cache-size=10000000 --media-cache-size=10000000 "$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/brave-puppy-sdb1.sh
 
@@ -128,8 +128,8 @@ cat > /tmp/repo2sfs/usr/bin/brave-root-no-sandbox.sh << EOF51
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.134"
 #xhost +local:puppy
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-brave --no-sandbox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins \$1
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/brave_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+brave --no-sandbox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins \$1
 EOF51
 chmod 755 /tmp/repo2sfs/usr/bin/brave-root-no-sandbox.sh
 

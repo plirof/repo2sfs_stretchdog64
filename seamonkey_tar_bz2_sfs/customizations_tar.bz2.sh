@@ -29,11 +29,8 @@ cp -n ./seamonkey_default_home_prefs.js $1/usr/bin/seamonkey_default_home_prefs.
 
 cat > $1/usr/bin/seamonkey-puppy.sh << EOF
 #!/bin/sh
-#export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-#export seamonkey_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
-#su -l puppy -c "/opt/seamonkey/seamonkey --user-data-dir=/home/puppy/.data/seamonkey_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/seamonkey_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
-su -l puppy -c "/opt/seamonkey/seamonkey"
+sudo -u puppy /opt/seamonkey/seamonkey
 EOF
 chmod 755 $1/usr/bin/seamonkey-puppy.sh
 
@@ -62,8 +59,8 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/seamonkey
 mkdir -p /mnt/home/downloads_linux/.cache/seamonkey
 cp -n /usr/bin/seamonkey_default_home_prefs.js /mnt/home/downloads_linux/.data/seamonkey/prefs.js
-#su -l puppy -c "/opt/seamonkey/seamonkey --user-data-dir=/mnt/home/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/home/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/seamonkey/seamonkey -profile "/mnt/home/downloads_linux/.data/seamonkey" \$1'
+#sudo -u puppy /opt/seamonkey/seamonkey --user-data-dir=/mnt/home/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/home/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy /opt/seamonkey/seamonkey -profile "/mnt/home/downloads_linux/.data/seamonkey" "$@"
 EOF61
 chmod 755 $1/usr/bin/seamonkey-puppy-home.sh
 
@@ -92,8 +89,8 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/seamonkey
 mkdir -p /mnt/sda1/downloads_linux/.cache/seamonkey
 cp -n /usr/bin/seamonkey_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/seamonkey/prefs.js
-#su -l puppy -c "/opt/seamonkey/seamonkey --user-data-dir=/mnt/sda1/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/seamonkey/seamonkey -profile "/mnt/sda1/downloads_linux/.data/seamonkey" \$1'
+#sudo -u puppy /opt/seamonkey/seamonkey --user-data-dir=/mnt/sda1/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy /opt/seamonkey/seamonkey -profile "/mnt/sda1/downloads_linux/.data/seamonkey" "$@"
 EOF31
 chmod 755 $1/usr/bin/seamonkey-puppy-sda1.sh
 
@@ -123,8 +120,8 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/seamonkey
 mkdir -p /mnt/sdb1/downloads_linux/.cache/seamonkey
 cp -n /usr/bin/seamonkey_default_sdb1_prefs.js /mnt/sdb1/downloads_linux/.data/seamonkey/prefs.js
-#su -l puppy -c "/opt/seamonkey/seamonkey --user-data-dir=/mnt/sdb1/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/seamonkey/seamonkey -profile "/mnt/sda1/downloads_linux/.data/seamonkey" \$1'
+#sudo -u puppy /opt/seamonkey/seamonkey --user-data-dir=/mnt/sdb1/downloads_linux/.data/seamonkey --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/seamonkey --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
+sudo -u puppy /opt/seamonkey/seamonkey -profile "/mnt/sda1/downloads_linux/.data/seamonkey" "$@"
 EOF41
 chmod 755 $1/usr/bin/seamonkey-puppy-sdb1.sh
 

@@ -2,7 +2,7 @@
 cat > /tmp/repo2sfs/usr/bin/opera-puppy << EOF
 #!/bin/sh
 xhost +local:puppy
-su -l puppy -c "opera \$1"
+sudo -u puppy opera "$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/opera-puppy
 sed -i 's/Exec=opera/Exec=opera-puppy/' /tmp/repo2sfs/usr/share/applications/opera.desktop

@@ -3,7 +3,7 @@
 cat > /tmp/repo2sfs/usr/bin/chromium-puppy << EOF
 #!/bin/sh
 xhost +local:puppy
-su -l puppy -c "/usr/lib/chromium/chromium --user-data-dir=/home/puppy/chrome/user --disk-cache-dir=/home/puppy/chrome/cache --disk-cache-size=10000000 --media-cache-size=10000000 \$1"
+sudo -u puppy /usr/lib/chromium/chromium --user-data-dir=/home/puppy/chrome/user --disk-cache-dir=/home/puppy/chrome/cache --disk-cache-size=10000000 --media-cache-size=10000000 "$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-puppy
 

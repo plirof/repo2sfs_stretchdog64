@@ -32,8 +32,8 @@ cat > $1/usr/bin/google-chrome-stable-puppy.sh << EOF
 xhost +local:puppy
 sudo chown root /opt/google/chrome/chrome-sandbox
 sudo chmod 4755 /opt/google/chrome/chrome-sandbox
-#su - puppy -c "/usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "google-chrome-stable --user-data-dir=/home/puppy/.data/google-chrome-stable_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/google-chrome-stable_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$@"
+#sudo -u puppy /usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy google-chrome-stable --user-data-dir=/home/puppy/.data/google-chrome-stable_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/google-chrome-stable_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 \$@"
 EOF
 chmod 755 $1/usr/bin/google-chrome-stable-puppy.sh
 
@@ -62,7 +62,7 @@ sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/google-chrome-stable
 mkdir -p /mnt/home/downloads_linux/.cache/google-chrome-stable
-su -l puppy -c "google-chrome-stable --user-data-dir=/mnt/home/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/home/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$@"
+sudo -u puppy google-chrome-stable --user-data-dir=/mnt/home/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/home/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$@"
 EOF61
 chmod 755 $1/usr/bin/google-chrome-stable-puppy-home.sh
 
@@ -93,8 +93,8 @@ sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/google-chrome-stable
 mkdir -p /mnt/sda1/downloads_linux/.cache/google-chrome-stable
-#su - puppy -c "/usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "google-chrome-stable --user-data-dir=/mnt/sda1/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$@"
+#sudo -u puppy /usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy google-chrome-stable --user-data-dir=/mnt/sda1/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$@"
 EOF31
 chmod 755 $1/usr/bin/google-chrome-stable-puppy-sda1.sh
 
@@ -126,8 +126,8 @@ sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/google-chrome-stable
 mkdir -p /mnt/sdb1/downloads_linux/.cache/google-chrome-stable
-#su - puppy -c "/usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "google-chrome-stable --user-data-dir=/mnt/sdb1/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$@"
+#sudo -u puppy /usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy google-chrome-stable --user-data-dir=/mnt/sdb1/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$@"
 EOF41
 chmod 755 $1/usr/bin/google-chrome-stable-puppy-sdb1.sh
 

@@ -21,8 +21,8 @@ cat > /tmp/repo2sfs/usr/bin/slimjet-puppy << EOF
 #export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 #export SLIMJET_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
-#su - puppy -c "/usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "flashpeak-slimjet --user-data-dir=/home/puppy/.data/slimjet_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/slimjet_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
+#sudo -u puppy /usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy flashpeak-slimjet --user-data-dir=/home/puppy/.data/slimjet_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/slimjet_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy
 
@@ -50,7 +50,7 @@ cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-home.sh << EOF61
 xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/slimjet
 mkdir -p /mnt/home/downloads_linux/.cache/slimjet
-su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/home/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/home/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 \$1"
+sudo -u puppy flashpeak-slimjet --user-data-dir=/mnt/home/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/home/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "$@"
 EOF61
 chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-home.sh
 
@@ -79,8 +79,8 @@ cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1.sh << EOF31
 xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/slimjet
 mkdir -p /mnt/sda1/downloads_linux/.cache/slimjet
-#su - puppy -c "/usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/sda1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+#sudo -u puppy /usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy flashpeak-slimjet --user-data-dir=/mnt/sda1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sda1.sh
 
@@ -109,8 +109,8 @@ cat > /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1.sh << EOF41
 xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/slimjet
 mkdir -p /mnt/sdb1/downloads_linux/.cache/slimjet
-#su - puppy -c "/usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "flashpeak-slimjet --user-data-dir=/mnt/sdb1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
+#sudo -u puppy /usr/bin/slimjet  --user-data-dir=/home/puppy/slimjet_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy flashpeak-slimjet --user-data-dir=/mnt/sdb1/downloads_linux/.data/slimjet --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/slimjet --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 "$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/slimjet-puppy-sdb1.sh
 

@@ -55,8 +55,8 @@ sudo chmod 4755 /usr/lib/chrome-linux/chrome-wrapper
 sudo chown root /usr/lib/chrome-linux/chrome_sandbox
 sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
 
-#su - puppy -c "/usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=30.0.0.154"
-su -l puppy -c "chromium --user-data-dir=/home/puppy/.data/chromium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/chromium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
+#sudo -u puppy /usr/bin/chromium-browser  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=30.0.0.154"
+sudo -u puppy chromium --user-data-dir=/home/puppy/.data/chromium-browser_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/chromium-browser_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=30.0.0.154 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "$@"
 EOF
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy.sh
 
@@ -95,7 +95,7 @@ sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
 mkdir -p /mnt/home/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/home/downloads_linux/.cache/chromium-browser
 
-su -l puppy -c "chromium --user-data-dir=/mnt/home/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=31.0.0.154 \$1"
+sudo -u puppy chromium --user-data-dir=/mnt/home/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/home/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.154 "$@"
 EOF61
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-home.sh
 
@@ -135,8 +135,8 @@ sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
 
 mkdir -p /mnt/sda1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sda1/downloads_linux/.cache/chromium-browser
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "chromium --user-data-dir=/mnt/sda1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy chromium --user-data-dir=/mnt/sda1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 "$@"
 EOF31
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sda1.sh
 
@@ -177,8 +177,8 @@ sudo chmod 4755 /usr/lib/chrome-linux/chrome_sandbox
 
 mkdir -p /mnt/sdb1/downloads_linux/.data/chromium-browser
 mkdir -p /mnt/sdb1/downloads_linux/.cache/chromium-browser
-#su - puppy -c "/usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-su -l puppy -c "chromium --user-data-dir=/mnt/sdb1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 \$1"
+#sudo -u puppy /usr/bin/chromium  --user-data-dir=/home/puppy/chromium-browser_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
+sudo -u puppy chromium --user-data-dir=/mnt/sdb1/downloads_linux/.data/chromium-browser --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/chromium-browser --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=30.0.0.154 "$@"
 EOF41
 chmod 755 /tmp/repo2sfs/usr/bin/chromium-browser-puppy-sdb1.sh
 

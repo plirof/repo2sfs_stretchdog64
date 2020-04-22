@@ -29,11 +29,8 @@ cp -n ./waterfox_default_home_prefs.js $1/usr/bin/waterfox_default_home_prefs.js
 
 cat > $1/usr/bin/waterfox-puppy.sh << EOF
 #!/bin/sh
-#export CHROMIUM_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
-#export waterfox_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
-#su -l puppy -c "/opt/waterfox/waterfox --user-data-dir=/home/puppy/.data/waterfox_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/waterfox_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-translate --always-authorize-plugins --media-cache-size=10000000 \$1"
-su -l puppy -c "/opt/waterfox/waterfox"
+sudo -u puppy /opt/waterfox/waterfox
 EOF
 chmod 755 $1/usr/bin/waterfox-puppy.sh
 
@@ -62,8 +59,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/waterfox
 mkdir -p /mnt/home/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_home_prefs.js /mnt/home/downloads_linux/.data/waterfox/prefs.js
-#su -l puppy -c "/opt/waterfox/waterfox --user-data-dir=/mnt/home/downloads_linux/.data/waterfox --disk-cache-dir=/mnt/home/downloads_linux/.cache/waterfox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/waterfox/waterfox -profile "/mnt/home/downloads_linux/.data/waterfox" \$1'
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/home/downloads_linux/.data/waterfox" "$@"
 EOF61
 chmod 755 $1/usr/bin/waterfox-puppy-home.sh
 
@@ -92,8 +88,7 @@ xhost +local:puppy
 mkdir -p /mnt/sda1/downloads_linux/.data/waterfox
 mkdir -p /mnt/sda1/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_sda1_prefs.js /mnt/sda1/downloads_linux/.data/waterfox/prefs.js
-#su -l puppy -c "/opt/waterfox/waterfox --user-data-dir=/mnt/sda1/downloads_linux/.data/waterfox --disk-cache-dir=/mnt/sda1/downloads_linux/.cache/waterfox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" \$1'
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "$@"
 EOF31
 chmod 755 $1/usr/bin/waterfox-puppy-sda1.sh
 
@@ -123,8 +118,7 @@ xhost +local:puppy
 mkdir -p /mnt/sdb1/downloads_linux/.data/waterfox
 mkdir -p /mnt/sdb1/downloads_linux/.cache/waterfox
 cp -n /usr/bin/waterfox_default_sdb1_prefs.js /mnt/sdb1/downloads_linux/.data/waterfox/prefs.js
-#su -l puppy -c "/opt/waterfox/waterfox --user-data-dir=/mnt/sdb1/downloads_linux/.data/waterfox --disk-cache-dir=/mnt/sdb1/downloads_linux/.cache/waterfox --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-translate --always-authorize-plugins  --ppapi-flash-version=29.0.0.171 \$1"
-su -l puppy -c '/opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" \$1'
+sudo -u puppy /opt/waterfox/waterfox -profile "/mnt/sda1/downloads_linux/.data/waterfox" "$@"
 EOF41
 chmod 755 $1/usr/bin/waterfox-puppy-sdb1.sh
 
