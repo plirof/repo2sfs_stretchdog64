@@ -18,8 +18,9 @@ uextract $MYFILENAME
 #../repo2sfs_custom $MYFILENAME
 #mv $MYFILENAME.squashfs $MYFILENAME_$MYVERSION.squashfs
 
-# add latest libffmpeg.so for MP4
-unzip -o 0.44.1-linux-x64__chromium80.0.3987.87.zip -d $MYFILENAME.extracted/opt/slimjet/
+# add latest libffmpeg.so & codecs for MP4 
+#unzip -o 0.44.1-linux-x64__chromium80.0.3987.87.zip -d $MYFILENAME.extracted/opt/slimjet/
+unzip -o 0.45.1-linux-x64.zip -d $MYFILENAME.extracted/opt/slimjet/
 cp libwidevinecdm.so_191215 $MYFILENAME.extracted/opt/slimjet/libwidevinecdm.so
 
 
