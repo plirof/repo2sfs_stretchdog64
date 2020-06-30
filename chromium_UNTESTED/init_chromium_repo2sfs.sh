@@ -10,7 +10,8 @@ echo "all OS builds are here :https://commondatastorage.googleapis.com/chromium-
 LATEST_BUILD="783842"
 MYFILENAME="Linux_x64_"$LATEST_BUILD"_chrome-linux"$(date +%F)".zip"
 
-WGET_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F"$LATEST_BUILD"%2Fchrome-linux.zip?generation=1585112877406284&alt=media"
+#WGET_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F"$LATEST_BUILD"%2Fchrome-linux.zip?generation=1585112877406284&alt=media"
+WGET_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F"$LATEST_BUILD"%2Fchrome-linux.zip?alt=media"
 
 #MYFILENAME_DRIVER=chromium-driver_69.0.3497.92-1~deb9u1_amd64
 #MYVERSION=_18.0.5.0_20180426_repo2sfs_v01
