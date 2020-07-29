@@ -1,0 +1,16 @@
+https://github.com/iteufel/nwjs-ffmpeg-prebuilt/releases
+
+How to install proprietary decoders from external ffmpeg library
+Slimjet doesn't include h.264, AAC and mp3 decoders on Linux and Mac platform due to patent issues. Without h.264 and AAC decoders, HTML5 videos encoded with MP4 format will not be playable. Without mp3 decoder, mp3 streaming music will not be playable. There are some external ffmpeg libraries contributed by the community which includes the proprietary decoders. You can download and install them on your own. Make sure you quit Slimjet first before installing the external ffmpeg library.
+
+Please note that the major version of the ffmpeg library should match with the Blink engine version of Slimjet. Otherwise, Slimjet might not be able to run at all. Always backup the original copy of libffmpeg.so before overwriting it with the external copy. The instructions here are intended for the latest version (26.0.3.0)of Slimjet. If you are using an older version of Slimjet, you might need find an older version of ffmpeg library to be compatible.
+
+NOTE: Every time you upgrade to a newer version of Slimjet, you will need install the ffmpeg library again.
+
+
+
+You can download libffmpeg.so from this github project. Choose the file 0.44.1-linux-x64.zip or 0.44.1-linux-x86.zip based on the number of bits of your linux. Extract the file libffmpeg.so out of the zip archive. After that, use the following commands to copy libffmpeg.so to the Slimjet installation folder ("/opt/slimjet" on Ubuntu),
+
+>sudo cp libffmpeg.so /opt/slimjet/
+
+If you install slimjet from the portable archive into a different folder, you should replace "/opt/slimjet" with the actual installation folder of Slimjet.
