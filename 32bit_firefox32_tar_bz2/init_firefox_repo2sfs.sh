@@ -8,6 +8,7 @@
 #dpkg-deb -e $MYFILENAME.deb		#extract the DEBIAN folder to the current directory
 #mkdir -p /tmp/repo2sfs
 #cp DEBIAN/control /tmp/repo2sfs/$MYFILENAME_control.txt
+echo "OLDER @@@@@@@  for firefox-79.0_i386.tar.bz2 - OLDER 32bit version with libatomic1_8.3.0-6_i386.deb"
 uextract firefox-79.0_i386.tar.bz2
 ./customizations_tar.bz2.sh "firefox-79.0_i386.tar.bz2.extracted"
 uextract "libatomic1_8.3.0-6_i386.deb"
