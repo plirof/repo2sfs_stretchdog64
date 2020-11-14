@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "firefox browser CUSTOMIZATION SCRIPT (FIREFOX BASED)"
 #############
-# firefox CUSTOMIZATION SCRIPT  jonmod 201114- added pulseaudio
+# firefox CUSTOMIZATION SCRIPT  jonmod 180530a 
 #############
 #chmod 4755 $1/usr/lib/x86_64-linux-gnu/firefox/firefox_sandbox
 #jonmod 180514a
@@ -35,8 +35,6 @@ cat > $1/usr/bin/firefox-puppy.sh << EOF
 #export firefox_FLAGS="--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171  --media-cache-size=10000000"
 xhost +local:puppy
 #sudo -u puppy /opt/firefox/firefox -no-remote --user-data-dir=/home/puppy/.data/firefox_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/firefox_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "\$@"
-#added pulseaudio run to enable sound
-sudo -u puppy /usr/bin/pulseaudio &
 sudo -u puppy /opt/firefox/firefox -no-remote
 EOF
 chmod 755 $1/usr/bin/firefox-puppy.sh
@@ -67,8 +65,6 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/firefox
 mkdir -p /mnt/home/downloads_linux/.cache/firefox
 cp -n /usr/bin/firefox_default_home_prefs.js /mnt/home/downloads_linux/.data/firefox/prefs.js
-#added pulseaudio run to enable sound
-sudo -u puppy /usr/bin/pulseaudio &
 sudo -u puppy /opt/firefox/firefox -no-remote -profile "/mnt/home/downloads_linux/.data/firefox" "\$@"
 EOF61
 chmod 755 $1/usr/bin/firefox-puppy-home.sh
@@ -181,32 +177,6 @@ StartupWMClass=firefox
 StartupNotify=true
 EOF52
 fi
-
-
-##############  pavucontrol-puppy.sh ###############
-cat > $1/usr/bin/pavucontrol-puppy.sh << EOFpavucontrol
-#####   sda2 #####################################################
-
-#!/bin/sh
-xhost +local:puppy
-#sudo -u puppy /opt/firefox/firefox -no-remote --user-data-dir=/home/puppy/.data/firefox_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/firefox_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "$@"
-sudo -u puppy /usr/bin/pavucontrol
-EOFpavucontrol
-chmod 755 $1/usr/bin/pavucontrol-puppy.sh
-
-
-cat > $1/usr/share/applications/pavucontrol-puppy.desktop << EOFpavucontrolDesktop
-[Desktop Entry]
-Version=1.0
-Encoding=UTF-8
-Name=PulseAudio Volume Control (user PUPPY)
-Exec=pavucontrol-puppy.sh
-Icon=multimedia-volume-control
-StartupNotify=true
-Type=Application
-Categories=AudioVideo;Audio;Mixer;GTK;
-EOFpavucontrolDesktop
-
 
 
 
