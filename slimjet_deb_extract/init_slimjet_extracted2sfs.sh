@@ -20,10 +20,10 @@ uextract $MYFILENAME
 
 # add latest libffmpeg.so & codecs for MP4 
 #unzip -o 0.44.1-linux-x64__chromium80.0.3987.87.zip -d $MYFILENAME.extracted/opt/slimjet/
-#unzip -o 0.45.1-linux-x64.zip -d $MYFILENAME.extracted/opt/slimjet/
-unzip -o 0.50.2-linux-x64.zip -d $MYFILENAME.extracted/opt/slimjet/
-#cp libwidevinecdm.so_191215 $MYFILENAME.extracted/opt/slimjet/libwidevinecdm.so
-cp libwidevinecdm.so_200212 $MYFILENAME.extracted/opt/slimjet/libwidevinecdm.so
+unzip -o 0.45.1-linux-x64.zip -d $MYFILENAME.extracted/opt/slimjet/
+# unzip -o 0.50.2-linux-x64.zip -d $MYFILENAME.extracted/opt/slimjet/  #0.50 had problems with netflix slimjet 28.0.3.0
+cp libwidevinecdm.so_191215 $MYFILENAME.extracted/opt/slimjet/libwidevinecdm.so
+#cp libwidevinecdm.so_200212 $MYFILENAME.extracted/opt/slimjet/libwidevinecdm.so   #libwidevinecdm. had problems with netflix slimjet 28.0.3.0
 
 
 
