@@ -1,0 +1,9 @@
+ffmpeg GET latest from here :
+https://repo.herecura.eu/herecura/x86_64/
+eg https://repo.herecura.eu/herecura/x86_64/vivaldi-snapshot-ffmpeg-codecs-98.0.4710.4-1-x86_64.pkg.tar.zst
+
+apt update
+apt-get install zstd
+tar --use-compress-program=unzstd -xvf https://repo.herecura.eu/herecura/x86_64/vivaldi-snapshot-ffmpeg-codecs-98.0.4710.4-1-x86_64.pkg.tar.zst
+
+then get "libffmpeg.so.5.0" and put it to /opt/slimjet/libffmpeg.so
