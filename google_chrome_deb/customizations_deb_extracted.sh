@@ -35,7 +35,7 @@ sudo chown root /opt/google/chrome/chrome-sandbox
 sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 #sudo -u puppy /usr/bin/google-chrome-stable  --user-data-dir=/home/puppy/google-chrome-stable_puppy_user_data_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --ppapi-flash-version=26.0.0.137"
 #sudo -u puppy google-chrome-stable --user-data-dir=/home/puppy/.data/google-chrome-stable_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/google-chrome-stable_puppy_user_cache_dir --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so  --ppapi-flash-version=29.0.0.171 --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 "\$@"
-sudo -u puppy google-chrome-stable --user-data-dir=/home/puppy/.data/google-chrome-stable_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/google-chrome-stable_puppy_user_cache_dir --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 --simulate-outdated-no-au='407466480500' "\$@"
+sudo -u puppy google-chrome-stable --user-data-dir=/home/puppy/.data/google-chrome-stable_puppy_user_data_dir --disk-cache-dir=/home/puppy/.cache/google-chrome-stable_puppy_user_cache_dir --disable-features=TranslateUI --always-authorize-plugins --media-cache-size=10000000 --simulate-outdated-no-au=407466480500  --no-default-browser-check "\$@"
 EOF
 chmod 755 $1/usr/bin/google-chrome-stable-puppy.sh
 
@@ -65,7 +65,7 @@ xhost +local:puppy
 mkdir -p /mnt/home/downloads_linux/.data/google-chrome-stable
 mkdir -p /mnt/home/downloads_linux/.cache/google-chrome-stable
 #sudo -u puppy google-chrome-stable --user-data-dir=/mnt/home/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/home/downloads_linux/.cache/google-chrome-stable --ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so --disable-features=TranslateUI --always-authorize-plugins  --ppapi-flash-version=31.0.0.171 "\$@"
-sudo -u puppy google-chrome-stable --user-data-dir=/mnt/home/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/home/downloads_linux/.cache/google-chrome-stable --disable-features=TranslateUI --always-authorize-plugins --simulate-outdated-no-au='407466480500' "\$@"
+sudo -u puppy google-chrome-stable --user-data-dir=/mnt/home/downloads_linux/.data/google-chrome-stable --disk-cache-dir=/mnt/home/downloads_linux/.cache/google-chrome-stable --disable-features=TranslateUI --always-authorize-plugins --simulate-outdated-no-au=407466480500 --no-default-browser-check  "\$@"
 EOF61
 chmod 755 $1/usr/bin/google-chrome-stable-puppy-home.sh
 
